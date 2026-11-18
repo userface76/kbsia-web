@@ -27,3 +27,29 @@ const observer = new IntersectionObserver(
 document.querySelectorAll('.pillar, .category-grid article, .news-grid article').forEach((el) => {
   observer.observe(el);
 });
+
+
+const viewportMeta = document.querySelector('meta[name="viewport"]');
+const desktopViewBtn = document.getElementById('desktopViewBtn');
+const mobileViewBtn = document.getElementById('mobileViewBtn');
+
+function applySavedViewMode() {
+  const mode = localStorage.getItem('kbsiaViewMode');
+  if (mode === 'desktop' && viewportMeta) {
+    viewportMeta.setAttribute('content', 'width=1200');
+    document.documentElement.classList.add('force-desktop');
+    if (desktopViewBtn) desktopViewBtn.hidden = true;
+    if (mobileViewBtn) mobileViewBtn.hidden = false;
+  }
+}
+applySavedViewMode();
+
+desktopViewBtn?.addEventListener('click', () => {
+  localStorage.setItem('kbsiaViewMode', 'desktop');
+  location.reload();
+});
+
+mobileViewBtn?.addEventListener('click', () => {
+  localStorage.removeItem('kbsiaViewMode');
+  location.reload();
+});
