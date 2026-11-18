@@ -1,0 +1,13 @@
+{
+  "name": "kbsia-web",
+  "version": "0.1.0",
+  "private": true,
+  "description": "강남뷰티서비스산업협회(KBSIA) 공식 홈페이지",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.148.0"
+  }
+}
