@@ -30,13 +30,7 @@ button{font:inherit}
 }
 .nav-wrap{height:78px;display:flex;align-items:center;gap:28px}
 .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
-.brand-mark{
-  width:42px;height:42px;display:grid;place-items:center;
-  background:var(--ink);color:white;font-weight:800;font-size:22px;
-}
-.brand-copy{display:flex;flex-direction:column;line-height:1.1}
-.brand-copy strong{font-size:19px;letter-spacing:.08em}
-.brand-copy small{font-size:11px;margin-top:5px;color:var(--muted)}
+.brand-logo img{width:225px;max-height:60px;object-fit:contain;object-position:left center}
 .site-nav{display:flex;gap:26px;margin-left:auto;align-items:center}
 .site-nav a{font-size:14px;font-weight:650;position:relative}
 .site-nav a:after{
@@ -51,23 +45,26 @@ button{font:inherit}
 .nav-toggle span{display:block;height:2px;background:var(--ink);margin:6px 0}
 
 .hero{
-  position:relative;overflow:hidden;
-  background:linear-gradient(135deg,#f7f5f1 0%,#eee8dc 52%,#d9ccaf 100%);
-  border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;color:#fff;
+  background:
+    linear-gradient(90deg,rgba(13,10,9,.95) 0%,rgba(20,15,13,.82) 35%,rgba(18,13,11,.42) 60%,rgba(10,9,9,.08) 100%),
+    url('/images/kbsia-hero.webp') center right/cover no-repeat;
+  border-bottom:1px solid rgba(255,255,255,.12);
 }
 .hero-grid{
-  min-height:690px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:60px;
+  min-height:690px;display:grid;grid-template-columns:minmax(0,680px) 1fr;align-items:center;gap:60px;
   position:relative;z-index:2;padding:70px 0 90px;
 }
+.hero-copy{max-width:680px}
 .eyebrow,.section-kicker{
   margin:0 0 18px;font-size:12px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
 }
 .hero h1{
-  margin:0;font-size:clamp(54px,7.2vw,104px);line-height:.93;letter-spacing:-.065em;
+  margin:0;font-size:clamp(54px,7.2vw,104px);line-height:.93;letter-spacing:-.065em;color:#fff;
 }
-.hero h1 span{color:var(--gold)}
-.hero-lead{font-size:clamp(26px,3vw,40px);line-height:1.25;margin:34px 0 18px;font-weight:700}
-.hero-body{max-width:590px;color:#4f4b45;font-size:17px}
+.hero h1 span{color:#d6b775}
+.hero-lead{font-size:clamp(26px,3vw,40px);line-height:1.25;margin:34px 0 18px;font-weight:700;color:#fff}
+.hero-body{max-width:590px;color:rgba(255,255,255,.82);font-size:17px}
 .hero-actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
@@ -75,27 +72,15 @@ button{font:inherit}
 }
 .btn-primary{background:var(--ink);color:white}
 .btn-primary:hover{transform:translateY(-2px);background:#2d2d2d}
+.hero .btn-primary{background:#d0ad67;color:#14110d}
+.hero .btn-primary:hover{background:#e1c181}
 .btn-ghost{border:1px solid var(--ink)}
 .btn-ghost:hover{background:white}
+.hero .btn-ghost{border-color:rgba(255,255,255,.58);color:#fff;background:rgba(255,255,255,.05)}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.14)}
 .btn-dark{background:#111;color:white}
 .btn-light{background:white;color:#111}
 .btn-outline-light{border:1px solid rgba(255,255,255,.65);color:white}
-.hero-visual{position:relative;height:480px}
-.visual-card{
-  position:absolute;width:72%;padding:28px;border:1px solid rgba(17,17,17,.16);
-  backdrop-filter:blur(10px);box-shadow:0 28px 70px rgba(38,31,20,.08);
-  display:flex;flex-direction:column;justify-content:flex-end;
-}
-.visual-card span{font-size:12px;letter-spacing:.2em;opacity:.55}
-.visual-card strong{font-size:34px;letter-spacing:.04em;margin-top:auto}
-.visual-card small{color:#5a554d}
-.card-a{height:210px;top:8px;right:2%;background:rgba(255,255,255,.72)}
-.card-b{height:220px;top:150px;left:2%;background:rgba(182,155,99,.18)}
-.card-c{height:170px;right:0;bottom:0;background:rgba(17,17,17,.9);color:white}
-.card-c small{color:#c7c7c7}
-.hero-orb{position:absolute;border-radius:999px;filter:blur(1px);opacity:.3}
-.orb-1{width:420px;height:420px;background:white;right:-120px;top:-100px}
-.orb-2{width:250px;height:250px;background:#b69b63;left:45%;bottom:-120px}
 .hero-stat-band{background:#111;color:white}
 .stat-grid{display:grid;grid-template-columns:repeat(4,1fr)}
 .stat-grid>div{padding:24px;border-right:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column}
@@ -195,7 +180,16 @@ button{font:inherit}
 .site-footer p{color:#aaa;margin:10px 0;font-size:13px}
 .site-footer span{color:#777}
 .footer-note{margin-top:22px!important;color:#696969!important}
-.copyright{border-top:1px solid #2d2d2d;margin-top:44px;padding-top:20px;color:#666;font-size:11px}
+.view-switch{border-top:1px solid #2d2d2d;margin-top:36px;padding-top:20px;text-align:center}
+.view-switch-btn{
+  background:transparent;color:#c9b486;border:1px solid #4b4335;border-radius:3px;
+  padding:9px 18px;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:.02em
+}
+.view-switch-btn:hover{background:#1b1813;border-color:#8a7650}
+.view-switch-btn[hidden]{display:none!important}
+.copyright{border-top:1px solid #2d2d2d;margin-top:20px;padding-top:20px;color:#666;font-size:11px}
+html.force-desktop body{min-width:1180px}
+html.force-desktop .view-switch{display:block;min-width:1180px}
 
 @media(max-width:960px){
   .site-nav,.nav-cta{display:none}
@@ -204,9 +198,12 @@ button{font:inherit}
     display:flex;position:absolute;left:0;right:0;top:78px;background:#f7f5f1;
     border-bottom:1px solid var(--line);padding:22px 20px;flex-direction:column;align-items:flex-start;gap:18px
   }
-  .hero-grid{grid-template-columns:1fr;min-height:auto;padding:70px 0 60px}
-  .hero-visual{height:360px}
-  .visual-card{width:72%}
+  .hero{
+    background:
+      linear-gradient(90deg,rgba(12,10,9,.96) 0%,rgba(18,14,12,.82) 48%,rgba(18,14,12,.48) 100%),
+      url('/images/kbsia-hero.webp') 66% center/cover no-repeat;
+  }
+  .hero-grid{grid-template-columns:1fr;min-height:650px;padding:70px 0 60px}
   .stat-grid{grid-template-columns:repeat(2,1fr)}
   .stat-grid>div:first-child{border-left:0}
   .two-col,.section-head,.network-grid,.partnership-grid{grid-template-columns:1fr;gap:30px}
@@ -219,16 +216,17 @@ button{font:inherit}
 @media(max-width:640px){
   .container{width:min(var(--max),calc(100% - 28px))}
   .nav-wrap{height:70px}
-  .brand-copy small{display:none}
+  .brand-logo img{width:190px;max-height:52px}
   .site-nav.open{top:70px}
-  .hero-grid{padding-top:55px}
+  .hero{
+    background:
+      linear-gradient(90deg,rgba(10,9,8,.97) 0%,rgba(16,13,11,.88) 55%,rgba(16,13,11,.58) 100%),
+      url('/images/kbsia-hero.webp') 70% center/cover no-repeat;
+  }
+  .hero-grid{padding-top:55px;min-height:620px}
   .hero h1{font-size:54px}
   .hero-lead{font-size:26px}
   .hero-body{font-size:15px}
-  .hero-visual{height:310px;margin-top:10px}
-  .visual-card{padding:20px}
-  .visual-card strong{font-size:25px}
-  .card-a{height:145px}.card-b{height:150px;top:110px}.card-c{height:130px}
   .stat-grid{grid-template-columns:1fr 1fr}
   .stat-grid>div{padding:18px 12px}
   .section{padding:76px 0}
@@ -249,3 +247,5 @@ button{font:inherit}
   .partnership-actions{flex-direction:column;align-items:stretch}
   .final-cta{padding:90px 14px}
 }
+
+@media(min-width:961px){html:not(.force-desktop) .view-switch{display:none}}
